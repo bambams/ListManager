@@ -68,8 +68,8 @@ sub find_list_dir
 
         if(-d LISTDIR)
         {
-            chdir $cwd;
             $found = '$current/' . LISTDIR;
+            chdir $cwd or die;
         }
     }
 
