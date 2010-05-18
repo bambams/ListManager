@@ -5,6 +5,7 @@ use 5.10.0;
 use strict;
 use warnings;
 
+use Cwd;
 use Data::Dumper;
 use File::Find;
 
@@ -54,26 +55,27 @@ sub add
 
 sub find_list_dir
 {
-    my $dir = $_[0] || ".";
-    my $listdir = "${dir}/" . LISTDIR;
+    return LISTDIR if -e LISTDIR;
 
-    print $rlog "$dir\n";
+    my $cwd = getcwd;
+    my $last = $cwd;
+    my $found = undef;
 
-    unless(-d $dir)
+    while(1)
     {
-        return;
-    }
-    else
-    {
-        print $rlog "${dir} exists...\n";
+        chdir '..' or last;
+        my $current = getcwd;
+        last if $last eq $current;
+        $last = $current;
+
+        if(-d LISTDIR)
+        {
+            chdir $cwd;
+            $found = '$current/' . LISTDIR;
+        }
     }
 
-    if(-d $listdir)
-    {
-        return $listdir;
-    }
-
-    return find_list_dir("${dir}/..");
+    return $found;
 }
 
 sub help
