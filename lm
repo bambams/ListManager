@@ -26,8 +26,6 @@ See 'lm help COMMAND' for more information on specific commands.
 EOF
 };
 
-open(my $rlog, ">", "recursion.log") or die;
-
 my ($subcommand, @args) = @ARGV;
 
 unless(defined($subcommand))
@@ -118,7 +116,7 @@ EOF
     {
         my $subcommand = $args[0];
         my $help = $help{$subcommand} || $help{error};
-        print sprintf($help, $subcommand);
+        printf($help, $subcommand);
         exit 0;
     }
 }
@@ -131,7 +129,7 @@ sub init
         exit 1;
     }
 
-    mkdir LISTDIR;
+    mkdir LISTDIR or die;
 }
 
 sub remove
