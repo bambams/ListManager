@@ -48,7 +48,16 @@ $sub->(\@args);
 
 sub add
 {
-    say 'add';
+    my %ext = (
+        '.c' => 'source',
+        '.cpp' => 'source',
+        '.cs' => 'source',
+        '.h' => 'header',
+        '.hpp' => 'header',
+        'pl' => 'source',
+        'py' => 'source',
+    );
+    my @args = @{$_[0]};
 }
 
 sub find_list_dir
