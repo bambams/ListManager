@@ -1,3 +1,6 @@
+List Manager is a [file] list tracking utility.
+Copyright (C) 2010 Brandon McCaig
+
 List Manager is intended to be used to manage lists of files for source
 code projects. It was inspired by Makefiles and source code management
 software. It's eventual purpose is to keep track of a list of files for
