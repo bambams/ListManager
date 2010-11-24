@@ -54,8 +54,8 @@ sub add
         '.cs' => 'source',
         '.h' => 'header',
         '.hpp' => 'header',
-        'pl' => 'source',
-        'py' => 'source',
+        '.pl' => 'source',
+        '.py' => 'source',
     );
     my @args = @{$_[0]};
 }
