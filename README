@@ -1,0 +1,13 @@
+List Manager is intended to be used to manage lists of files for source
+code projects. It was inspired by Makefiles and source code management
+software. It's eventual purpose is to keep track of a list of files for
+you and give you information about them. For example, if you wanted to
+keep track of source files for a code project, you would build a list of
+relevant source files by adding them to the List Manager. You could then
+retrieve the list whenver you wanted, as well as view the 'status' of
+your tree, showing which files are currently listed and which are not.
+You could then use the list in build scripts, for example.
+
+List Manager is a work in progress and it may just be reinventing the
+square wheel. Time will tell.
+
